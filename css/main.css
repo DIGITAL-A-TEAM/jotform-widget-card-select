@@ -1,0 +1,165 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: rgb(229, 229, 229);
+    min-height: max-content;
+}
+
+.main {
+    align-content: stretch;
+    align-items: stretch;
+    display: grid;
+    grid-gap: 5px;
+    grid-template-columns: 1fr 1fr 1fr;
+    justify-content: center;
+    margin: auto auto;
+    width: auto;
+}
+
+@media (max-width: 440px) {
+    .main {
+        grid-template-columns: 1fr;
+    }
+}
+
+.main .plan {
+    background-color: #fff;
+    border: 1px solid gray;
+    border-radius: 0;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.main .plan ul li {
+    font-size: 14px;
+    list-style: none;
+    padding: 10px 0 10px 50px;
+    position: relative;
+}
+
+.main .plan ul li:not(:last-child) {
+    border-bottom: 1px solid lightgray;
+}
+
+.main .plan ul li span {
+    background-color: green;
+    border-radius: 50%;
+    height: 20px;
+    left: 10px;
+    position: absolute;
+    top: 25%;
+    width: 20px;
+}
+
+.main .basic ul li:not(.tick) span {
+    background-color: red;
+}
+
+.main .basic ul li.tick span::before {
+    background-color: #fff;
+    content: "";
+    height: 9px;
+    left: 10px;
+    position: absolute;
+    top: 6px;
+    transform: rotate(45deg);
+    width: 3px;
+}
+
+.main .basic ul li.tick span::after {
+    background-color: #fff;
+    content: "";
+    height: 3px;
+    left: 5px;
+    position: absolute;
+    top: 10px;
+    transform: rotate(45deg);
+    width: 6px;
+}
+
+.main .basic ul li:not(.tick) span::before,
+.main .basic ul li:not(.tick) span::after {
+    background-color: #fff;
+    content: "";
+    height: 9px;
+    left: 9px;
+    position: absolute;
+    top: 6px;
+    transform: rotate(45deg);
+    width: 2px;
+}
+
+.main .basic ul li:not(.tick) span::after {
+    transform: rotate(-45deg) !important;
+}
+
+@media (max-width: 890px) {
+    .main {
+        flex-direction: column;
+    }
+
+    .main .plan {
+        width: 100%;
+    }
+}
+
+.plan-head {
+    background-color: red;
+    border-radius: 0 0 0 0;
+    color: #fff;
+    font-size: 18px;
+    overflow: hidden;
+    padding: 12px;
+    position: relative;
+    z-index: 1;
+}
+
+input[type="checkbox"] {
+    display: none;
+}
+
+input[type="radio"] {
+    display: none;
+}
+
+:checked+label.selected {
+    border: 3px solid black;
+}
+
+.star {
+    border-bottom: 0.7em solid #fc0;
+    border-left: 0.3em solid transparent;
+    border-right: 0.3em solid transparent;
+    float: right;
+    font-size: 8px;
+    height: 0;
+    margin-bottom: 0.3em;
+    margin-bottom: 1.2em;
+    margin-left: 0.8em;
+    margin-right: 0.8em;
+    position: relative;
+    width: 0;
+}
+
+.star:before,
+.star:after {
+    border-bottom: 0.7em solid #fc0;
+    border-left: 1em solid transparent;
+    border-right: 1em solid transparent;
+    content: '';
+    display: block;
+    height: 0;
+    left: -1em;
+    position: absolute;
+    top: 0.6em;
+    transform: rotate(-35deg);
+    width: 0;
+}
+
+.star:after {
+    transform: rotate(35deg);
+}
