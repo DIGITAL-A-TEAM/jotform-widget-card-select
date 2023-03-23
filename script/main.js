@@ -106,7 +106,7 @@ JFCustomWidget.subscribe("ready", function () {
         }
         document.getElementById('inp' + i).onchange = valueClick;
     }
-    JFCustomWidget.requestFrameResize({width: document.body.clientWidth, height: document.body.clientHeight})
+    JFCustomWidget.requestFrameResize({height: Math.max(document.body.scrollHeight, document.body.offsetHeight, document.body.clientHeight, window.innerHeight) + 80})
     JFCustomWidget.subscribe("submit", function () {
 
 
